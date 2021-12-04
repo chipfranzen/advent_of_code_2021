@@ -7,7 +7,7 @@ fn count_increases(measurements: &Vec<isize>) -> isize {
     let mut prev_val: isize = isize::MAX;
     let mut increase_count: isize = 0;
 
-    for val in measurements.iter() {
+    for val in measurements {
         let increment = (val > &prev_val) as isize;
 
         prev_val = *val;
@@ -21,7 +21,7 @@ fn window_sum(measurements: &Vec<isize>, window_size: usize) -> Vec<isize> {
     let mut buffer: VecDeque<isize> = VecDeque::with_capacity(window_size);
     let mut result: Vec<isize> = Vec::new();
 
-    for val in measurements.iter() {
+    for val in measurements {
         if buffer.len() == buffer.capacity() {
             let _ = buffer.pop_back();
         }
