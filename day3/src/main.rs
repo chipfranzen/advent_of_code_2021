@@ -58,18 +58,19 @@ fn rating(input: &Vec<Vec<bool>>, greq: bool, n_bits: usize) -> Vec<bool> {
 
         let iter_input = input.to_owned();
 
-        let filtered: Vec<&Vec<bool>> = iter_input.iter()
-            .filter(|x| { x[i] == subset_bool[i] })
+        let filtered: Vec<&Vec<bool>> = iter_input
+            .iter()
+            .filter(|x| x[i] == subset_bool[i])
             .collect();
 
         input = Vec::new();
-        
+
         for item in filtered {
             input.push(item.to_owned());
         }
 
         if input.len() == 1 {
-            return input.first().unwrap().to_owned()
+            return input.first().unwrap().to_owned();
         }
     }
     panic!("Filtered out all the possible items!");
